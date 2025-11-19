@@ -8,16 +8,11 @@ const db = require('./database');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
+
 app.use(cors()); // Разрешаем запросы с frontend
 app.use(express.json()); // Парсим JSON из запросов
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Раздаем картинки
 
-// ============================================
-// API ENDPOINTS ДЛЯ ПОЛЬЗОВАТЕЛЕЙ (чтение)
-// ============================================
-
-// Получить все категории с переводами
 app.get('/api/categories', (req, res) => {
     const lang = req.query.lang || 'ru'; // язык из параметра ?lang=ru
 
@@ -43,7 +38,6 @@ app.get('/api/categories', (req, res) => {
     });
 });
 
-// Получить позиции меню по категории
 app.get('/api/items/:categoryId', (req, res) => {
     const categoryId = req.params.categoryId;
     const lang = req.query.lang || 'ru';
@@ -71,16 +65,9 @@ app.get('/api/items/:categoryId', (req, res) => {
     });
 });
 
-// ============================================
-// API ENDPOINTS ДЛЯ АДМИНКИ (CRUD)
-// ============================================
-
-
-// Добавить категорию
 app.post('/api/admin/categories', (req, res) => {
     const { name_ru, name_en, image_url, sort_order } = req.body;
 
-    // Сначала создаем категорию
     db.query(
         'INSERT INTO categories (image_url, sort_order) VALUES (?, ?)',
         [image_url, sort_order || 0],
@@ -113,7 +100,6 @@ app.post('/api/admin/categories', (req, res) => {
     );
 });
 
-// Удалить категорию
 app.delete('/api/admin/categories/:id', (req, res) => {
     const id = req.params.id;
 
@@ -126,7 +112,6 @@ app.delete('/api/admin/categories/:id', (req, res) => {
     });
 });
 
-// Добавить позицию меню
 app.post('/api/admin/items', (req, res) => {
     const {
         category_id,
@@ -151,7 +136,6 @@ app.post('/api/admin/items', (req, res) => {
 
             const itemId = result.insertId;
 
-            // Добавляем переводы
             const translations = [
                 [itemId, 1, name_ru, description_ru],
                 [itemId, 2, name_en, description_en]
@@ -172,7 +156,7 @@ app.post('/api/admin/items', (req, res) => {
     );
 });
 
-// Удалить позицию
+
 app.delete('/api/admin/items/:id', (req, res) => {
     const id = req.params.id;
 
@@ -185,7 +169,6 @@ app.delete('/api/admin/items/:id', (req, res) => {
     });
 });
 
-// Запускаем сервер
 app.listen(PORT, () => {
     console.log(`🚀 Сервер запущен на http://localhost:${PORT}`);
 });
