@@ -1,0 +1,84 @@
+:root {
+    --primary-color: #6d2932;
+    --second-color: #e8d8c4;
+    --third-color: #6d2932;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--primary-color);
+}
+
+.logo {
+    height: 300px;
+    width: 300px;
+    margin: -20px;
+}
+
+.language-select-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.language-select-content {
+    text-align: center;
+    background-color: var(--second-color);
+    padding: 30px 10px;
+    border-radius: 20px;
+}
+
+.language-select-content h1 {
+    font-size: 1.7rem;
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.language-select-content .welcome {
+    margin-bottom: 10px;
+}
+
+.language-select-content p {
+    font-size: 1.3rem;
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--third-color);
+}
+
+.language-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+.language-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    margin: 0 20px;
+    padding: 15px 200px;
+    background: var(--second-color);
+    color: white;
+    border: 3px solid var(--third-color);
+    border-radius: 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: var(--third-color);
+    transition: all 0.3s;
+}
+
+.language-button:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.flag{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+}
