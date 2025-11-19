@@ -1,9 +1,8 @@
-// Загружаем переменные из .env файла
+
 require('dotenv').config();
 
 const mysql = require('mysql2');
 
-// Создаем подключение используя переменные из .env
 const connection = mysql.createConnection({
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
