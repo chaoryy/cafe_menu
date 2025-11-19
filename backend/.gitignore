@@ -1,0 +1,16 @@
+.env
+.env.local
+.env.*.local
+
+# Node modules
+node_modules/
+
+# Загруженные файлы
+uploads/
+
+# Логи
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
