@@ -42,7 +42,7 @@ function MenuItems() {
   return (
     <div className="container">
       <div className="header">
-        <h1>{language === "ru" ? "📋 Позиции меню" : "📋 Menu Items"}</h1>
+        <h1>{language === "ru" ? " Позиции меню" : " Menu Items"}</h1>
         <button className="back-button" onClick={goBack}>
           {language === "ru" ? "← Назад" : "← Back"}
         </button>
