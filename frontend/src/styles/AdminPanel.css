@@ -8,6 +8,7 @@
 }
 
 .admin-header h1 {
+  padding-left: 10px;
   color: var(--third-color);
   font-size: 2rem;
   font-weight: 700;

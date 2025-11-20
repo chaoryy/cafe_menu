@@ -9,12 +9,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 
-app.use(cors()); // Разрешаем запросы с frontend
-app.use(express.json()); // Парсим JSON из запросов
-app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Раздаем картинки
+app.use(cors()); 
+app.use(express.json()); 
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); 
 
 app.get('/api/categories', (req, res) => {
-    const lang = req.query.lang || 'ru'; // язык из параметра ?lang=ru
+    const lang = req.query.lang || 'ru'; 
 
     const query = `
     SELECT 
@@ -80,10 +80,9 @@ app.post('/api/admin/categories', (req, res) => {
 
             const categoryId = result.insertId;
 
-            // Теперь добавляем переводы
             const translations = [
-                [categoryId, 1, name_ru], // language_id=1 это русский
-                [categoryId, 2, name_en]  // language_id=2 это английский
+                [categoryId, 1, name_ru], 
+                [categoryId, 2, name_en]  
             ];
 
             db.query(
@@ -125,7 +124,6 @@ app.post('/api/admin/items', (req, res) => {
         sort_order
     } = req.body;
 
-    // Создаем позицию
     db.query(
         'INSERT INTO menu_items (category_id, price, image_url, sort_order) VALUES (?, ?, ?, ?)',
         [category_id, price, image_url, sort_order || 0],

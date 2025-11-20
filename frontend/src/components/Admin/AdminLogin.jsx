@@ -8,9 +8,7 @@ function AdminLogin() {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Предотвращаем перезагрузку страницы
-
-    // Простая проверка пароля (в реальном проекте это должно быть на backend!)
+    e.preventDefault();
     const ADMIN_PASSWORD = "admin123"; // Можно вынести в .env
 
     if (password === ADMIN_PASSWORD) {
@@ -31,7 +29,7 @@ function AdminLogin() {
   return (
     <div className="admin-login-container">
       <div className="admin-login-box">
-        <h1>🔐 Вход в админ-панель</h1>
+        <h1>Вход в админ-панель</h1>
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
