@@ -1,38 +1,168 @@
-.App {
-  text-align: center;
+:root {
+    --primary-color: #6d2932;
+    --second-color: #e8d8c4;
+    --third-color: #6d2932;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--primary-color);
   min-height: 100vh;
+}
+
+.App {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: var(--second-color);
+  border-radius: 20px;
+  min-height: 80vh;
+}
+
+/* Header */
+.header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 3px solid var(--third-color);
 }
 
-.App-link {
-  color: #61dafb;
+.header h1 {
+  color: var(--third-color);
+  font-size: 2rem;
+  font-weight: 700;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Back Button */
+.back-button {
+  padding: 12px 25px;
+  background-color: var(--second-color);
+  color: var(--third-color);
+  border: 3px solid var(--third-color);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Nunito', sans-serif;
+  transition: all 0.3s;
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(109, 41, 50, 0.3);
+  background-color: var(--third-color);
+  color: var(--second-color);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+/* Card */
+.card {
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(109, 41, 50, 0.15);
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 3px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(109, 41, 50, 0.3);
+  border-color: var(--third-color);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 2px solid var(--second-color);
+}
+
+.card-content {
+  padding: 20px;
+  background-color: var(--second-color);
+}
+
+.card-title {
+  font-size: 1.3rem;
+  color: var(--third-color);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.card-description {
+  color: #5a3a3a;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.card-price {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.5rem;
+  color: var(--third-color);
+  font-weight: 600;
+}
+
+/* Error */
+.error {
+  text-align: center;
+  padding: 50px;
+  color: #c62828;
+  font-size: 1.2rem;
+  background-color: #ffebee;
+  border-radius: 10px;
+  border: 2px solid #e74c3c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .container {
+    padding: 15px;
   }
 }

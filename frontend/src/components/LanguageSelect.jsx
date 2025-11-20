@@ -41,6 +41,10 @@ function LanguageSelect() {
               <img className="flag" src={uk} alt="uk flag" />
               <span>English</span>
             </button>
+
+            <button className="admin-link" onClick={() => navigate("/admin")}>
+              Админ
+            </button>
           </div>
         </div>
       </div>
