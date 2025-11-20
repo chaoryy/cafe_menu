@@ -43,7 +43,7 @@ app.get('/api/items/:categoryId', (req, res) => {
     const lang = req.query.lang || 'ru';
 
     const query = `
-    SELECT 
+    SELECT
       mi.id,
       mi.price,
       mi.image_url,
@@ -53,6 +53,7 @@ app.get('/api/items/:categoryId', (req, res) => {
     FROM menu_items mi
     JOIN item_translations it ON mi.id = it.item_id
     JOIN languages l ON it.language_id = l.id
+    WHERE mi.category_id = ? AND l.code = ?
     ORDER BY mi.sort_order
   `;
 
